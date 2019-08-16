@@ -56,6 +56,7 @@ router.post(
         const hashPass = bcrypt.hashSync(password, salt);
         if (name === undefined) {
           const account = await User.create({ email, password: hashPass, trainer: false });
+          console.log('sdfghjkl');
           req.session.currentUser = account;
         } else {
           const personalTrainer = await User.create({ name, surname, email, password: hashPass, country, city, academic, description, skills, train, trainer: true });
