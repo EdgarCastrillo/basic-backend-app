@@ -32,7 +32,10 @@ const userSchema = new Schema({
     type: []
   },
   train: {
-    type: []
+    type: String
+  },
+  trainer: {
+    type: Boolean
   },
   userType: {
     type: String
