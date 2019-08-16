@@ -2,25 +2,18 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  username: {
+  name: {
     type: String,
     unique: true
   },
-  password: {
+  surname: {
     type: String
   },
   email: {
     type: String,
-    required: false,
     unique: true
   },
-  firstName: {
-    type: String
-  },
-  secondName: {
-    type: String
-  },
-  surname: {
+  password: {
     type: String
   },
   country: {
@@ -29,8 +22,8 @@ const userSchema = new Schema({
   city: {
     type: String
   },
-  studies: {
-    type: []
+  academic: {
+    type: String
   },
   description: {
     type: String
@@ -38,7 +31,7 @@ const userSchema = new Schema({
   skills: {
     type: []
   },
-  whereTrain: {
+  train: {
     type: []
   },
   userType: {
