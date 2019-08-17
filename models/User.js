@@ -9,6 +9,9 @@ const userSchema = new Schema({
   surname: {
     type: String
   },
+  images: {
+    type: []
+  },
   email: {
     type: String,
     unique: true
