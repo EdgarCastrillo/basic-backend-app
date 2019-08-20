@@ -22,6 +22,15 @@ router.put('/:id/update', isLoggedIn(), async (req, res, next) => {
   }
 });
 
+router.put('/bookmarks/:id/new', isLoggedIn(), async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    res.status(200).json(id);
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.delete('/:id/delete', isLoggedIn(), async (req, res, next) => {
   // delete
 });

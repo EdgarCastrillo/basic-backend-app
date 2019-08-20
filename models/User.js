@@ -42,7 +42,10 @@ const userSchema = new Schema({
   },
   userType: {
     type: String
-  }
+  },
+  myBookmarks: [{
+    type: String
+  }]
 }, {
   timestamps: {
     createdAt: 'created_at',
