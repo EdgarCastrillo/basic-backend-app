@@ -22,9 +22,20 @@ router.put('/:id/update', isLoggedIn(), async (req, res, next) => {
   }
 });
 
-router.put('/bookmarks/:id/new', isLoggedIn(), async (req, res, next) => {
+router.put('/bookmarks/:id/update', isLoggedIn(), async (req, res, next) => {
   try {
     const { id } = req.params;
+    console.log(id);
+    const userId = req.session.currentUser._id;
+    const currentBookmarks = req.session.currentUser.myBookmarks;
+    console.log(currentBookmarks);
+    let updatedUser;
+    if (currentBookmarks.includes(id)) {
+      updatedUser = await User.findByIdAndUpdate(userId, { $pull: { myBookmarks: id } }, { new: true });
+    } else {
+      updatedUser = await User.findByIdAndUpdate(userId, { $push: { myBookmarks: id } }, { new: true });
+    }
+    req.session.currentUser = updatedUser;
     res.status(200).json(id);
   } catch (error) {
     next(error);
